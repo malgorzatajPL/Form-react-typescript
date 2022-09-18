@@ -1,6 +1,11 @@
 import { useForm } from 'react-hook-form';
 import { IFormValues } from '../types/CustomTextFields.types';
-import { Error, InputTextField } from './CustomTextFieldStyle';
+import {
+  CustomTextField,
+  Error,
+  InputTextField,
+  LabelTextField,
+} from './CustomTextFieldStyle';
 import { MainComponentStyle } from './MainComponent.style';
 
 export default function MainComponent() {
@@ -16,40 +21,53 @@ export default function MainComponent() {
   return (
     <MainComponentStyle>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <InputTextField
-          {...register('firstName', {
-            required: true,
-            minLength: 2,
-            maxLength: 50,
-          })}
-        />
-        <Error>{errors.firstName && 'First name is required'}</Error>
-        <InputTextField
-          {...register('lastName', {
-            required: true,
-            minLength: 2,
-            maxLength: 50,
-          })}
-        />
-        <Error>{errors.lastName && 'Last name is required'}</Error>
-        <InputTextField
-          {...register('email', {
-            required: true,
-            minLength: 2,
-            maxLength: 100,
-          })}
-          type='email'
-        />
-        <Error>{errors.email && 'Email is required'}</Error>
-        <InputTextField
-          {...register('password', {
-            required: true,
-            minLength: 8,
-            maxLength: 50,
-          })}
-          type='password'
-        />
-        <Error>{errors.password && 'Password is required'}</Error>
+        <CustomTextField>
+          <LabelTextField>First name</LabelTextField>
+          <InputTextField
+            {...register('firstName', {
+              required: true,
+              minLength: 2,
+              maxLength: 50,
+            })}
+          />
+          <Error>{errors.firstName && 'First name is required'}</Error>
+        </CustomTextField>
+        <CustomTextField>
+          <LabelTextField>Last name</LabelTextField>
+          <InputTextField
+            {...register('lastName', {
+              required: true,
+              minLength: 2,
+              maxLength: 50,
+            })}
+          />
+          <Error>{errors.lastName && 'Last name is required'}</Error>
+        </CustomTextField>
+        <CustomTextField>
+          <LabelTextField>Email</LabelTextField>
+          <InputTextField
+            {...register('email', {
+              required: true,
+              minLength: 2,
+              maxLength: 100,
+            })}
+            type='email'
+          />
+          <Error>{errors.email && 'Email is required'}</Error>
+        </CustomTextField>
+        <CustomTextField>
+          <LabelTextField>Password</LabelTextField>
+          <InputTextField
+            {...register('password', {
+              required: true,
+              minLength: 8,
+              maxLength: 50,
+            })}
+            type='password'
+            autoComplete='new-password'
+          />
+          <Error>{errors.password && 'Password is required'}</Error>
+        </CustomTextField>
         <input type='submit' />
       </form>
     </MainComponentStyle>
