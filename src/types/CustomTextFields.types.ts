@@ -8,7 +8,6 @@ export type CustomTextFieldType = {
 export interface IFormValues {
   firstName: string;
   lastName: string;
-  age: number;
   email: string;
   password: string;
   type?: string;

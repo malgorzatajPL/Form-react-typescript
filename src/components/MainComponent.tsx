@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { IFormValues } from '../types/CustomTextFields.types';
-import { InputTextField } from './CustomTextFieldStyle';
+import { Error, InputTextField } from './CustomTextFieldStyle';
 import { MainComponentStyle } from './MainComponent.style';
 
 export default function MainComponent() {
@@ -11,7 +11,7 @@ export default function MainComponent() {
   } = useForm<IFormValues>();
 
   const onSubmit = (data: IFormValues) => {
-    console.log(data);
+    alert(JSON.stringify(data));
   };
   return (
     <MainComponentStyle>
@@ -23,7 +23,7 @@ export default function MainComponent() {
             maxLength: 50,
           })}
         />
-        {errors.firstName && 'First name is required'}
+        <Error>{errors.firstName && 'First name is required'}</Error>
         <InputTextField
           {...register('lastName', {
             required: true,
@@ -31,14 +31,7 @@ export default function MainComponent() {
             maxLength: 50,
           })}
         />
-        {errors.lastName && 'Last name is required'}
-        <InputTextField
-          {...register('age', { required: true })}
-          type='number'
-          min='10'
-          max='100'
-        />
-        {errors.age && 'Age is required'}
+        <Error>{errors.lastName && 'Last name is required'}</Error>
         <InputTextField
           {...register('email', {
             required: true,
@@ -47,7 +40,7 @@ export default function MainComponent() {
           })}
           type='email'
         />
-        {errors.email && 'Email is required'}
+        <Error>{errors.email && 'Email is required'}</Error>
         <InputTextField
           {...register('password', {
             required: true,
@@ -56,7 +49,7 @@ export default function MainComponent() {
           })}
           type='password'
         />
-        {errors.password && 'Password is required'}
+        <Error>{errors.password && 'Password is required'}</Error>
         <input type='submit' />
       </form>
     </MainComponentStyle>
