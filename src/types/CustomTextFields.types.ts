@@ -6,6 +6,10 @@ export type CustomTextFieldType = {
   required: boolean;
 };
 export interface IFormValues {
-  'First Name': string;
-  Age: number;
+  firstName: string;
+  lastName: string;
+  age: number;
+  email: string;
+  password: string;
+  type?: string;
 }
