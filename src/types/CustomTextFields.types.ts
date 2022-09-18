@@ -1,13 +1,11 @@
+import { Path, UseFormRegister } from 'react-hook-form';
+
 export type CustomTextFieldType = {
-  label: string;
-  name: string;
-  type?: string;
-  placeholder: string;
-  validation?: {
-    required?: boolean;
-    maxLength?: number;
-    pattern?: RegExp;
-    validate?: (number: number) => false | Promise<boolean | undefined>;
-  };
-  validationFailedMessage?: string | undefined;
+  label: Path<IFormValues>;
+  register: UseFormRegister<IFormValues>;
+  required: boolean;
 };
+export interface IFormValues {
+  'First Name': string;
+  Age: number;
+}
