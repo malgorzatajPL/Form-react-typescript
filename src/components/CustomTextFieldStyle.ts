@@ -4,6 +4,7 @@ import { fontSize, theme } from '../theme/theme';
 export const CustomTextField = styled.div`
   position: relative;
 `;
+
 export const InputTextField = styled.input`
   font-family: ${theme.fontFamily.secondary};
   color: ${theme.palette.common.white}!important;
@@ -21,9 +22,6 @@ export const InputTextField = styled.input`
   :focus {
     background-color: ${theme.palette.common.main}!important;
   }
-  -internal-autofill-selected {
-    background-color: ${theme.palette.common.main}!important;
-  }
 `;
 
 export const LabelTextField = styled.div`
@@ -33,14 +31,13 @@ export const LabelTextField = styled.div`
   font-family: ${theme.fontFamily.main};
   font-size: ${fontSize(12)};
   background-color: ${theme.palette.common.main};
-  padding: 3px;
+  padding: 3px 5px;
   left: 10px;
-  top: -7px;
+  top: 12px;
+  border-radius: 5px;
 `;
 export const Error = styled.div`
   color: ${theme.palette.common.red};
   font-family: ${theme.fontFamily.main};
   margin-top: -8px;
 `;
-
-export const Submit = styled.div``;

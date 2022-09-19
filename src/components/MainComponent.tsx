@@ -6,7 +6,12 @@ import {
   InputTextField,
   LabelTextField,
 } from './CustomTextFieldStyle';
-import { MainComponentStyle } from './MainComponent.style';
+import {
+  Form,
+  Header,
+  MainComponentStyle,
+  Submit,
+} from './MainComponent.style';
 
 export default function MainComponent() {
   const {
@@ -20,7 +25,8 @@ export default function MainComponent() {
   };
   return (
     <MainComponentStyle>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <Header>Contact us</Header>
         <CustomTextField>
           <LabelTextField>First name</LabelTextField>
           <InputTextField
@@ -68,8 +74,8 @@ export default function MainComponent() {
           />
           <Error>{errors.password && 'Password is required'}</Error>
         </CustomTextField>
-        <input type='submit' />
-      </form>
+        <Submit type='submit'>Submit</Submit>
+      </Form>
     </MainComponentStyle>
   );
 }
