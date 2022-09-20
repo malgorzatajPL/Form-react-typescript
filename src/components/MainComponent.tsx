@@ -26,7 +26,7 @@ export default function MainComponent() {
   return (
     <MainComponentStyle>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Header>Contact us</Header>
+        <Header>Sign in</Header>
         <CustomTextField>
           <LabelTextField>First name</LabelTextField>
           <InputTextField
